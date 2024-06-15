@@ -1,0 +1,42 @@
+Palindrome Number 
+Given an integer x, return true if x is a palindrome, and false otherwise.
+
+Example 1:
+Input: x = 121
+Output: true
+Explanation: 121 reads as 121 from left to right and from right to left.
+
+Example 2:
+Input: x = -121
+Output: false
+Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.
+
+/*class Solution {
+    public boolean isPalindrome(int x) {
+        int reve = 0;
+        if(x < 0){
+            return false;
+        }
+        for(int temp = x; temp != 0; temp/=10){
+            reve*=10;
+            reve += temp%10;
+        }
+        
+        return(reve == x);
+    }
+}*/
+best case run time 
+class Solution {
+    public boolean isPalindrome(int x) {
+        int r=0;
+        int p=x;
+        while(x>0){
+            r=r*10+(x%10);
+            x=x/10;
+        }
+        if(r==p){
+            return true;
+        }
+    return false;
+    }
+}
