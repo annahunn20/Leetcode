@@ -1,0 +1,101 @@
+Mobile numeric keypad
+There is a standard numeric keypad on a mobile phone. You can only press the current button or buttons that are directly up, left, right, or down from it (for ex if you press 5, then pressing 2, 4, 6 & 8 are allowed). Diagonal movements and pressing the bottom row corner buttons (* and #) are prohibited.
+Given a number n, find the number of possible unique sequences of length n that you can create by pressing buttons. You can start from any digit.
+
+Examples
+Input: n = 1
+Output: 10
+Explanation: Number of possible numbers are 10 (0, 1, 2, 3, 4, 5, 6, 7, 8, 9)  
+
+Input: n = 2
+Output: 36
+Explanation: Possible numbers: 00, 08, 11, 12, 14, 22, 21, 23, 25 and so on. If we start with 0, valid numbers will be 00, 08 (count: 2). If we start with 1, valid numbers will be 11, 12, 14 (count: 3). If we start with 2, valid numbers  will be 22, 21, 23,25 (count: 4). If we start with 3, valid numbers will be 33, 32, 36 (count: 3). If we start with 4, valid numbers will be 44,41,45,47 (count: 4). If we start with 5, valid numbers will be 55,54,52,56,58 (count: 5) and so on.
+
+//{ Driver Code Starts
+// Initial Template for Java
+
+import java.io.*;
+import java.util.*;
+
+class GfG {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        while (t-- > 0) {
+            int n = sc.nextInt();
+            Solution ob = new Solution();
+            System.out.println(ob.getcount(n));
+        }
+    }
+}
+// } Driver Code Ends
+
+
+// User function Template for Java
+class Solution {
+    static int row[]={0,0,-1,0,1};
+    static int col[]={0,-1,0,1,0};
+    static long [][][] memo;
+    
+    static long getcountutil(char keypad[][],int i,int j,int n)
+    {
+        if(keypad==null||n<=0)
+        return 0;
+        if(n==1)
+        return 1;
+        
+        if(memo[i][j][n]!= -1)
+        return memo[i][j][n];
+        
+        long totalcount=0;
+        for(int move=0;move<5;move++)
+        {
+            int ro=i+row[move];
+            int co=j+col[move];
+            if(ro>=0 && ro<=3 && co>=0 && co<=2 && keypad[ro][co] != '*' && keypad[ro][co] !='#')
+            {
+                totalcount+=getcountutil(keypad,ro,co,n-1);
+            }
+        }
+        memo[i][j][n]=totalcount;
+        return totalcount;
+    }
+    static long getcount(char [][] keypad,int n)
+    {
+        if(keypad==null || n<=0)
+        return 0;
+        if(n==1)
+        return 10;
+        
+        memo=new long[4][3][n+1];
+        for(int i=0;i<4;i++)
+        {
+            for(int j=0;j<3;j++)
+            {
+                Arrays.fill(memo[i][j],-1);
+            }
+        }
+        
+        int i=0,j=0;
+        long totalcount=0;
+        for(i=0;i<4;i++)
+        {
+            for(j=0;j<3;j++)
+            if(keypad[i][j] !='*' && keypad [i][j]!= '#')
+            {
+                totalcount+=getcountutil(keypad,i,j,n);
+            }
+        }return totalcount;
+    }
+    
+    public long getcount(int n)
+ {
+     char [][]keypad={
+         {'1','2','3'},
+         {'4','5','6'},
+         {'7','8','9'},
+         {'*','0','#'}
+     };
+     return getcount(keypad,n);
+ }
+}
