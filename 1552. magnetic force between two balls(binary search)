@@ -1,0 +1,110 @@
+Magnetic force between two balls
+In the universe Earth C-137, Rick discovered a special form of magnetic force between two balls if they are put in his new invented basket. Rick has n empty baskets, the ith basket is at position[i], Morty has m balls and needs to distribute the balls into the baskets such that the minimum magnetic force between any two balls is maximum.
+Rick stated that magnetic force between two different balls at positions x and y is |x - y|.
+Given the integer array position and the integer m. Return the required force.
+
+Input: position = [1,2,3,4,7], m = 3
+Output: 3
+Explanation: Distributing the 3 balls into baskets 1, 4 and 7 will make the magnetic force between ball pairs [3, 3, 6]. The minimum magnetic force is 3. We cannot achieve a larger minimum magnetic force than 3.
+
+Example 2:
+Input: position = [5,4,3,2,1,1000000000], m = 2
+Output: 999999999
+Explanation: We can use baskets 1 and 1000000000.
+
+Step by Step Explanation
+Initial Setup and Sorting:
+Sort the position array.
+Initialize lo and hi for binary search range.
+Binary Search:
+Perform binary search to find the maximum possible minimum distance.
+For each mid value, check if it is possible to place m balls with at least mid distance apart.
+Placement Check:
+Traverse the position array to place balls.
+Use a counter to count the number of balls placed and update the position of the last placed ball.
+If the required number of balls are placed, return true, otherwise return false.
+
+/*class Solution {
+    // Helper function to check if it's possible to place 'm' balls with at least 'gap' distance apart
+    private boolean canPlaceBalls(int gap, int[] positions, int m) {
+        int lastPosition = positions[0]; // Position of the last placed ball
+        // Assuming that one ball is already placed, 
+        // we keep remaining balls as m - 1
+        int ballsRemaining = m - 1;      // Number of balls left to place
+
+        // Iterate over the positions to try placing the remaining balls
+        for (int i = 1; i < positions.length && ballsRemaining > 0; i++) {
+            // Check if the current position is at least 'gap' distance from the last placed ball
+            if (positions[i] - lastPosition >= gap) {
+                ballsRemaining--;            // Place the ball
+                lastPosition = positions[i]; // Update the position of the last placed ball
+            }
+        }
+        return ballsRemaining == 0; // Return true if all balls are placed successfully
+    }
+
+    // Function to find the maximum minimum distance between any two balls
+    public int maxDistance(int[] positions, int m) {
+        Arrays.sort(positions); // Sort the positions to facilitate binary search
+        int n = positions.length;
+
+        // Initialize the binary search range
+        int left = 1; // Minimum possible gap
+        int right = positions[n - 1] - positions[0]; // Maximum possible gap
+        int maxMinDistance = -1;
+
+        // Perform binary search
+        while (left <= right) {
+            int mid = (left + right) / 2;
+
+            // Check if it's possible to place all balls with at least 'mid' distance apart
+            if (canPlaceBalls(mid, positions, m)) {
+                maxMinDistance = mid; // Update the result
+                left = mid + 1;       // Try for a larger gap
+            } else {
+                right = mid - 1;      // Try for a smaller gap
+            }
+        }
+        return maxMinDistance; // Return the maximum minimum distance
+    }
+}*/
+class Solution {
+    public int maxDistance(int[] position, int m) {
+        Arrays.sort(position);
+        int lo = 1;
+        int hi = (position[position.length-1]-position[0])/(m-1);
+        int ans = 1;
+        while(lo<=hi)
+        {
+            int mid = lo+(hi-lo)/2;
+            if(canWePlace(position, mid, m))
+            {
+                ans = mid;
+                lo=mid+1;
+            }
+            else
+            {
+                hi = mid-1;
+            }
+        }
+        return ans;
+    }
+    private boolean canWePlace(int[] arr, int dist, int cows)
+    {
+        int cntCows=1;
+        int last = arr[0];
+        for(int i=0;i<arr.length;i++)
+        {
+            if(arr[i]-last>=dist)
+            {
+                cntCows++;
+                last = arr[i];
+            }
+            if(cntCows>=cows)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+}
