@@ -1,0 +1,82 @@
+Delete Nodes And Return Forest
+Given the root of a binary tree, each node in the tree has a distinct value.
+After deleting all nodes with a value in to_delete, we are left with a forest (a disjoint union of trees).
+Return the roots of the trees in the remaining forest. You may return the result in any order.
+
+Example 1:
+Input: root = [1,2,3,4,5,6,7], to_delete = [3,5]
+Output: [[1,2,null,4],[6],[7]]
+
+Example 2:
+Input: root = [1,2,4,null,3], to_delete = [3]
+Output: [[1,2,4]]
+
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+/*class Solution {
+        Set<Integer> to_delete_set;
+    List<TreeNode> res;
+    public List<TreeNode> delNodes(TreeNode root, int[] to_delete) {
+        to_delete_set = new HashSet<>();
+        res = new ArrayList<>();
+        for (int i : to_delete)
+            to_delete_set.add(i);
+        helper(root, true);
+        return res;
+    }
+
+    private TreeNode helper(TreeNode node, boolean is_root) {
+        if (node == null) return null;
+        boolean deleted = to_delete_set.contains(node.val);
+        if (is_root && !deleted) res.add(node);
+        node.left = helper(node.left, deleted);
+        node.right =  helper(node.right, deleted);
+        return deleted ? null : node;
+    }
+}*/
+//beats 100%
+class Solution {
+    private boolean[] s = new boolean[1001];
+    private List<TreeNode> ans = new ArrayList<>();
+
+    public List<TreeNode> delNodes(TreeNode root, int[] to_delete) {
+        for (int x : to_delete) {
+            s[x] = true;
+        }
+        if (dfs(root) != null) {
+            ans.add(root);
+        }
+        return ans;
+    }
+
+    private TreeNode dfs(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+        root.left = dfs(root.left);
+        root.right = dfs(root.right);
+        if (!s[root.val]) {
+            return root;
+        }
+        if (root.left != null) {
+            ans.add(root.left);
+        }
+        if (root.right != null) {
+            ans.add(root.right);
+        }
+        return null;
+    }
+}
