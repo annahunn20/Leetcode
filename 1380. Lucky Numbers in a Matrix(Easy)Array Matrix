@@ -1,0 +1,59 @@
+1380. Lucky Numbers in a Matrix
+Given an m x n matrix of distinct numbers, return all lucky numbers in the matrix in any order.
+A lucky number is an element of the matrix such that it is the minimum element in its row and maximum in its column.
+
+Example 1:
+Input: matrix = [[3,7,8],[9,11,13],[15,16,17]]
+Output: [15]
+Explanation: 15 is the only lucky number since it is the minimum in its row and the maximum in its column.
+
+Example 2:
+Input: matrix = [[1,10,4,2],[9,3,8,7],[15,16,17,12]]
+Output: [12]
+Explanation: 12 is the only lucky number since it is the minimum in its row and the maximum in its column.
+
+Example 3:
+Input: matrix = [[7,8],[1,2]]
+Output: [7]
+Explanation: 7 is the only lucky number since it is the minimum in its row and the maximum in its column.
+
+class Solution {
+    public List<Integer> luckyNumbers (int[][] matrix) {
+        List<Integer> lsRes = new ArrayList<>();
+
+        for(int i = 0; i < matrix.length; i++)
+        {
+            int col = findMin(matrix, i);
+
+            int maxCol = matrix[i][col];
+            if(maxInCol(matrix, maxCol, col))
+                lsRes.add(maxCol);
+            // for(int r = 0; r < matrix.length; r++)
+            // {
+            //     if(matrix[r][col] > maxCol)
+            //         maxCol = matrix[r][col];
+            // }
+
+            // if(minRow == maxCol)
+            //     lsRes.add(matrix[i][col]);
+        }
+        return lsRes;
+    }
+    private int findMin(int[][] matrix, int row){
+		int val= matrix[row][0], col=0;
+		for(int i=1;i<matrix[row].length;i++){
+			if(matrix[row][i]<val){
+				val=matrix[row][i];
+				col=i;
+			}
+		}
+		return col;
+	}
+    private boolean maxInCol(int[][] matrix, int val, int col){
+        for(int i=0;i<matrix.length;i++){
+            if(matrix[i][col]>val)
+                return false;
+        }
+        return true;
+    }
+}
