@@ -1,0 +1,39 @@
+1371. Find the Longest Substring Containing Vowels in Even Counts
+Given the string s, return the size of the longest substring containing each vowel an even number of times. That is, 'a', 'e', 'i', 'o', and 'u' must appear an even number of times.
+
+Example 1:
+Input: s = "eleetminicoworoep"
+Output: 13
+Explanation: The longest substring is "leetminicowor" which contains two each of the vowels: e, i and o and zero of the vowels: a and u.
+
+Example 2:
+Input: s = "leetcodeisgreat"
+Output: 5
+Explanation: The longest substring is "leetc" which contains two e's.
+
+Example 3:
+Input: s = "bcbcbc"
+Output: 6
+Explanation: In this case, the given string "bcbcbc" is the longest because all vowels: a, e, i, o and u appear zero times.
+
+class Solution {
+    static boolean[] isVowel = new boolean[]{true, false, false, false, true, false, false, false, true, false, false, false, false, false, true, false, false, false, false, false, true, false, false, false, false, false};
+    static int[] xor = new int[]{1, 0, 0, 0, 2, 0, 0, 0, 4, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0};
+    public int findTheLongestSubstring(String s) {
+        int[] earliest = new int[32];
+        Arrays.fill(earliest, -2);
+        earliest[0] = -1;
+        char[] cs = s.toCharArray();
+        int key = 0;
+        int longest = 0;
+        for (int i = 0; i < cs.length; i++) {
+            if (isVowel[cs[i] - 'a']) key ^= xor[cs[i] - 'a'];
+            if (earliest[key] == -2) earliest[key] = i;
+            else {
+                int len = i - earliest[key];
+                if (len > longest) longest = len;
+            }
+        }
+        return longest;
+    }
+}
