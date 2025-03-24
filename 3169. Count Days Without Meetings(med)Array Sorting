@@ -1,0 +1,63 @@
+3169. Count Days Without Meetings
+You are given a positive integer days representing the total number of days an employee is available for work (starting from day 1). You are also given a 2D array meetings of size n where, meetings[i] = [start_i, end_i] represents the starting and ending days of meeting i (inclusive).
+Return the count of days when the employee is available for work but no meetings are scheduled.
+Note: The meetings may overlap.
+
+Example 1:
+Input: days = 10, meetings = [[5,7],[1,3],[9,10]]
+Output: 2
+Explanation:
+There is no meeting scheduled on the 4th and 8th days.
+
+Example 2:
+Input: days = 5, meetings = [[2,4],[1,3]]
+Output: 1
+Explanation:
+There is no meeting scheduled on the 5th day.
+
+Example 3:
+Input: days = 6, meetings = [[1,6]]
+Output: 0
+Explanation:
+Meetings are scheduled for all working days.
+
+class Solution {
+    public int countDays(int days, int[][] meetings) {
+        int freeDays = days;
+        TreeMap<Integer, Integer> meetingDays = new TreeMap<>();
+        for (int[] meeting : meetings) {
+            int start = meeting[0];
+            int end = meeting[1];
+            // System.out.printf("Meeting: (%d, %d)\n", start, end);
+            int overlapDays = 0;
+
+            Map.Entry<Integer, Integer> previousMeetingDays = meetingDays.floorEntry(start);
+            if (previousMeetingDays != null && previousMeetingDays.getValue() >= start - 1) {
+                if (previousMeetingDays.getValue() >= end) continue; // Complete overlap
+                overlapDays = previousMeetingDays.getValue() - previousMeetingDays.getKey() + 1;
+                // System.out.printf("Overlapping previous: (%d, %d)\n", previousMeetingDays.getKey(), previousMeetingDays.getValue());
+                start = previousMeetingDays.getKey();
+            }
+
+            Map.Entry<Integer, Integer> nextMeetingDays = meetingDays.ceilingEntry(start + 1);
+            while (nextMeetingDays != null && nextMeetingDays.getKey() <= end + 1) {
+                meetingDays.remove(nextMeetingDays.getKey());
+                overlapDays += nextMeetingDays.getValue() - nextMeetingDays.getKey() + 1;
+                // System.out.printf("Overlapping next: (%d, %d)\n", nextMeetingDays.getKey(), nextMeetingDays.getValue());
+                if (nextMeetingDays.getValue() >= end) {
+                    end = nextMeetingDays.getValue();
+                    break;
+                }
+                nextMeetingDays = meetingDays.ceilingEntry(start + 1);
+            }
+
+            meetingDays.put(start, end);
+            freeDays -= (end - start + 1) - overlapDays;
+            // System.out.printf("Result: (%d, %d)\n", start, end);
+            // System.out.printf("FreeDays - ((%d - %d + 1) - %d) = %d\n\n", end, start, overlapDays, freeDays);
+            if (freeDays == 0) break;
+        }
+        return freeDays;
+
+    }
+}
