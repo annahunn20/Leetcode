@@ -1,125 +1,70 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>🌟 LeetCode Journey by Anika 🌟</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f9f9f9;
-      color: #333;
-      line-height: 1.6;
-      padding: 2rem;
-    }
-    h1 {
-      color: #2c3e50;
-      font-size: 2.5rem;
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-    p {
-      text-align: center;
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-    }
-    .highlight {
-      background: #e0f7fa;
-      padding: 1rem;
-      border-left: 5px solid #00bcd4;
-      margin: 1.5rem 0;
-    }
-    .tag {
-      display: inline-block;
-      padding: 0.25em 0.6em;
-      font-size: 0.9rem;
-      border-radius: 12px;
-      margin: 0.2em;
-      color: white;
-    }
-    .easy { background-color: #4caf50; }
-    .medium { background-color: #ff9800; }
-    .hard { background-color: #f44336; }
-    .topic {
-      background-color: #607d8b;
-    }
-    a {
-      color: #2196f3;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    pre {
-      background-color: #fff;
-      padding: 1em;
-      border: 1px solid #ddd;
-      overflow-x: auto;
-    }
-    footer {
-      text-align: center;
-      margin-top: 3rem;
-      font-size: 0.9rem;
-      color: #777;
-    }
-  </style>
-</head>
-<body>
+<h1 align="center">🌟 LeetCode Journey by Anika 🌟</h1>
+<p align="center">
+  <em>Optimized solutions | Topic-tagged | Clean Code | Time & Space Complexity</em><br/>
+  <strong>“Keep Coding. Keep Growing.” 💻</strong>
+</p>
 
-  <h1>🌟 My LeetCode Journey 🌟</h1>
+<hr>
 
-  <p>Welcome to my LeetCode repository where I commit solutions with 💡 optimized time & space complexity.</p>
+<h2>📁 Repository Structure</h2>
 
-  <ul>
-    <li>✅ Each file includes the problem statement</li>
-    <li>📂 Difficulty tag: <span class="tag easy">Easy</span> / <span class="tag medium">Medium</span> / <span class="tag hard">Hard</span></li>
-    <li>📚 Categorized by relevant <span class="tag topic">topics</span></li>
-    <li>⚡ Best complexity solutions, clean and well-commented code</li>
-  </ul>
-
-  <div class="highlight">
-    🚀 Whether you're preparing for interviews or building a strong DSA foundation, this repo is your structured, topic-wise LeetCode practice companion!
-  </div>
-
-  <h2>✨ Example Entry Format</h2>
-  <pre>
+<pre>
 Leetcode/
-├── 1123. Lowest Common Ancestor of Deepest Leaves (med) Hash Table Tree DFS BFS Binary Tree
-├── 1. Two Sum (easy) Array Hash Table
-├── 239. Sliding Window Maximum (hard) Heap Queue Sliding Window
-  </pre>
+├── 1. Two Sum (easy) - Array, Hash Table
+├── 121. Best Time to Buy and Sell Stock (easy) - Array, DP
+├── 560. Subarray Sum Equals K (medium) - Array, Prefix Sum, Hash Table
+├── 1123. Lowest Common Ancestor of Deepest Leaves (medium) - Tree, DFS, BFS
+├── 42. Trapping Rain Water (hard) - Array, Stack, Two Pointers, DP
+</pre>
 
-  <h2>🧠 Tags Used</h2>
-  <div>
-    <span class="tag easy">Easy</span>
-    <span class="tag medium">Medium</span>
-    <span class="tag hard">Hard</span>
-    <span class="tag topic">Array</span>
-    <span class="tag topic">Hash Table</span>
-    <span class="tag topic">Tree</span>
-    <span class="tag topic">DFS</span>
-    <span class="tag topic">BFS</span>
-    <span class="tag topic">Heap</span>
-    <span class="tag topic">Sliding Window</span>
-    <span class="tag topic">Backtracking</span>
-    <span class="tag topic">Graph</span>
-    <span class="tag topic">DP</span>
-    <!-- Add more topics as needed -->
-  </div>
+<hr>
 
-  <h2>📘 Contribution & Maintenance</h2>
-  <ul>
-    <li>✔️ Clean, readable code for every problem</li>
-    <li>✔️ Time & Space complexity mentioned</li>
-    <li>✔️ Regularly updated with new problems</li>
-  </ul>
+<h2>✨ Features</h2>
+<ul>
+  <li>✅ Clean & well-commented code</li>
+  <li>📌 Difficulty level: 
+    <span style="color:white; background:#4caf50; padding:3px 8px; border-radius:10px;">Easy</span> 
+    <span style="color:white; background:#ff9800; padding:3px 8px; border-radius:10px;">Medium</span> 
+    <span style="color:white; background:#f44336; padding:3px 8px; border-radius:10px;">Hard</span>
+  </li>
+  <li>🔖 Categorized by topic: Array, Graph, DP, Backtracking, Tree, etc.</li>
+  <li>⏱️ Includes best time & space complexity</li>
+  <li>🔗 Each file contains problem link and tags</li>
+</ul>
 
-  <div class="highlight">
-    ⭐ Feel free to explore, learn, and contribute! Pull requests and stars are welcome!  
-  </div>
+<hr>
 
-  <footer>
-    Made with ❤️ by Anika Gangwar | Keep Coding. Keep Growing. 💻
-  </footer>
+<h2>🧠 Topics Covered</h2>
+<p>
+  <span style="background:#607d8b; color:white; padding:5px 10px; border-radius:12px;">Array</span>
+  <span style="background:#607d8b; color:white; padding:5px 10px; border-radius:12px;">Hash Table</span>
+  <span style="background:#607d8b; color:white; padding:5px 10px; border-radius:12px;">Tree</span>
+  <span style="background:#607d8b; color:white; padding:5px 10px; border-radius:12px;">Graph</span>
+  <span style="background:#607d8b; color:white; padding:5px 10px; border-radius:12px;">DP</span>
+  <span style="background:#607d8b; color:white; padding:5px 10px; border-radius:12px;">BFS</span>
+  <span style="background:#607d8b; color:white; padding:5px 10px; border-radius:12px;">DFS</span>
+  <span style="background:#607d8b; color:white; padding:5px 10px; border-radius:12px;">Stack</span>
+  <span style="background:#607d8b; color:white; padding:5px 10px; border-radius:12px;">Queue</span>
+</p>
 
-</body>
-</html>
+<hr>
+
+<h2>🚀 Sample Problem Format</h2>
+
+<pre>
+📄 1123. Lowest Common Ancestor of Deepest Leaves (Medium)
+🧠 Topics: Hash Table, Tree, DFS, BFS
+⏱️ Time: O(n), Space: O(n)
+🔗 <a href="https://leetcode.com/problems/lowest-common-ancestor-of-deepest-leaves/">Problem Link</a>
+</pre>
+
+<hr>
+
+<h2>🤝 Contributions</h2>
+<p>
+  Found an issue or have a suggestion? PRs and ideas are always welcome! Let's grow together 🌱
+</p>
+
+<hr>
+
+<p align="center"><strong>Made with ❤️ by Anika Gangwar</strong></p>
