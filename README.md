@@ -1,5 +1,3 @@
-# Leetcode
-Leetcode problems
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,6 +49,12 @@ Leetcode problems
     a:hover {
       text-decoration: underline;
     }
+    pre {
+      background-color: #fff;
+      padding: 1em;
+      border: 1px solid #ddd;
+      overflow-x: auto;
+    }
     footer {
       text-align: center;
       margin-top: 3rem;
@@ -63,56 +67,54 @@ Leetcode problems
 
   <h1>🌟 My LeetCode Journey 🌟</h1>
 
-  <p>Welcome to my LeetCode repository where I commit solutions with 💡 best time & space complexity. Each solution includes:</p>
+  <p>Welcome to my LeetCode repository where I commit solutions with 💡 optimized time & space complexity.</p>
+
   <ul>
-    <li>✅ Problem statement</li>
-    <li>📂 Difficulty tag (Easy / Medium / Hard)</li>
-    <li>📚 Topic-wise categorization</li>
-    <li>⚡ Optimized approach and clean code</li>
+    <li>✅ Each file includes the problem statement</li>
+    <li>📂 Difficulty tag: <span class="tag easy">Easy</span> / <span class="tag medium">Medium</span> / <span class="tag hard">Hard</span></li>
+    <li>📚 Categorized by relevant <span class="tag topic">topics</span></li>
+    <li>⚡ Best complexity solutions, clean and well-commented code</li>
   </ul>
 
   <div class="highlight">
-    🚀 Whether you're revising concepts or practicing for interviews, this repo is your one-stop destination for structured LeetCode prep!
+    🚀 Whether you're preparing for interviews or building a strong DSA foundation, this repo is your structured, topic-wise LeetCode practice companion!
   </div>
 
-  <h2>✨ Tags Used</h2>
+  <h2>✨ Example Entry Format</h2>
+  <pre>
+Leetcode/
+├── 1123. Lowest Common Ancestor of Deepest Leaves (med) Hash Table Tree DFS BFS Binary Tree
+├── 1. Two Sum (easy) Array Hash Table
+├── 239. Sliding Window Maximum (hard) Heap Queue Sliding Window
+  </pre>
+
+  <h2>🧠 Tags Used</h2>
   <div>
     <span class="tag easy">Easy</span>
     <span class="tag medium">Medium</span>
     <span class="tag hard">Hard</span>
-    <span class="tag topic">Arrays</span>
-    <span class="tag topic">Linked Lists</span>
-    <span class="tag topic">Trees</span>
-    <span class="tag topic">Graphs</span>
-    <span class="tag topic">DP</span>
-    <span class="tag topic">Stacks</span>
-    <span class="tag topic">Queues</span>
+    <span class="tag topic">Array</span>
+    <span class="tag topic">Hash Table</span>
+    <span class="tag topic">Tree</span>
+    <span class="tag topic">DFS</span>
+    <span class="tag topic">BFS</span>
+    <span class="tag topic">Heap</span>
+    <span class="tag topic">Sliding Window</span>
     <span class="tag topic">Backtracking</span>
-    <!-- Add more tags as needed -->
+    <span class="tag topic">Graph</span>
+    <span class="tag topic">DP</span>
+    <!-- Add more topics as needed -->
   </div>
 
-  <h2>📁 Repository Structure</h2>
-  <pre>
-  /Easy/
-    - Two Sum
-    - Valid Parentheses
-  /Medium/
-    - Longest Substring Without Repeating Characters
-    - Add Two Numbers
-  /Hard/
-    - Median of Two Sorted Arrays
-    - N-Queens
-  </pre>
-
-  <p>Each file contains:</p>
+  <h2>📘 Contribution & Maintenance</h2>
   <ul>
-    <li>✔️ Clean, commented code</li>
-    <li>✔️ Mentioned complexity: Time & Space</li>
-    <li>✔️ Problem topic and link</li>
+    <li>✔️ Clean, readable code for every problem</li>
+    <li>✔️ Time & Space complexity mentioned</li>
+    <li>✔️ Regularly updated with new problems</li>
   </ul>
 
   <div class="highlight">
-    ⭐ Contributions, pull requests, and ideas are welcome!  
+    ⭐ Feel free to explore, learn, and contribute! Pull requests and stars are welcome!  
   </div>
 
   <footer>
@@ -121,4 +123,3 @@ Leetcode problems
 
 </body>
 </html>
-
