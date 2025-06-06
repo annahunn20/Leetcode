@@ -45,6 +45,10 @@ Leetcode/
   <span style="background:#607d8b; color:white; padding:5px 10px; border-radius:12px;">DFS</span>
   <span style="background:#607d8b; color:white; padding:5px 10px; border-radius:12px;">Stack</span>
   <span style="background:#607d8b; color:white; padding:5px 10px; border-radius:12px;">Queue</span>
+  <span style="background:#607d8b; color:white; padding:5px 10px; border-radius:12px;">Heap</span>
+  <span style="background:#607d8b; color:white; padding:5px 10px; border-radius:12px;">LinkedList</span>
+  <span style="background:#607d8b; color:white; padding:5px 10px; border-radius:12px;">String</span>
+  <span style="background:#607d8b; color:white; padding:5px 10px; border-radius:12px;">Matrix</span>
 </p>
 
 <hr>
